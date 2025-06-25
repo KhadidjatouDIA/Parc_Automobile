@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="parc_automobile_carte_grise_sequence" model="ir.sequence">
+            <field name="name">Nouvelle carte grise</field>
+            <field name="code">parc.automobile.carte.grise</field>
+            <field name="prefix">CGSN</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <record id="parc_automobile_contrat_location_sequence" model="ir.sequence">
+            <field name="name">Numéro de contrat</field>
+            <field name="code">parc.automobile.contrat.location</field>
+            <field name="prefix">N°</field>
+            <field name="padding">3</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <record id="parc_automobile_voiture_sequence" model="ir.sequence">
+            <field name="name">Numéro de véhicule</field>
+            <field name="code">parc.automobile.voiture</field>
+            <field name="prefix">VH</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <record id="parc_automobile_affectation_sequence" model="ir.sequence">
+            <field name="name">Numéro d'affectation</field>
+            <field name="code">parc.automobile.affectation</field>
+            <field name="prefix">AFF</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <record id="parc_automobile_entretien_sequence" model="ir.sequence">
+            <field name="name">Numéro d'entretien</field>
+            <field name="code">parc.automobile.entretien</field>
+            <field name="prefix">ENT</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

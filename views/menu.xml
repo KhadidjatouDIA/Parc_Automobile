@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menu Principal -->
+        <menuitem
+            id="parc_auto"
+            name="Parc Automobile"
+            sequence="0"
+        />
+
+        <!-- Tableau de Bord -->
+        <menuitem
+            id="parc_auto_dashboard"
+            name="Tableau de Bord"
+            parent="parc_auto"
+            action="action_parc_automobile_dashboard"
+            sequence="0"
+        />
+
+        <!-- Configuration -->
+        <menuitem
+            id="parc_auto_conf"
+            name="Configuration"
+            parent="parc_auto"
+            sequence="1"
+        />
+        <menuitem
+            id="parc_auto_voiture"
+            name="Voiture"
+            parent="parc_auto_conf"
+            action="action_parc_automobile_voiture"
+            sequence="1"
+        />
+        <menuitem
+            id="parc_auto_marque"
+            name="Marque"
+            parent="parc_auto_conf"
+            action="action_parc_automobile_marque"
+            sequence="2"
+        />
+        <menuitem
+            id="parc_auto_modele"
+            name="Modèle"
+            parent="parc_auto_conf"
+            action="action_parc_automobile_modele"
+            sequence="3"
+        />
+        <menuitem
+            id="parc_auto_client"
+            name="Client"
+            parent="parc_auto_conf"
+            action="action_parc_automobile_client"
+            sequence="4"
+        />
+
+        <!-- Paramétrage -->
+        <menuitem
+            id="parc_auto_param"
+            name="Paramétrage"
+            parent="parc_auto"
+            sequence="2"
+        />
+        <menuitem
+            id="parc_auto_assurance"
+            name="Compagnie d'assurance"
+            parent="parc_auto_param"
+            action="action_parc_automobile_assurance"
+            sequence="1"
+        />
+        <menuitem
+            id="parc_auto_carte_grise"
+            name="Carte Grise"
+            parent="parc_auto_param"
+            action="action_parc_automobile_carte_grise"
+            sequence="2"
+        />
+        <menuitem
+            id="parc_auto_contrat_location"
+            name="Contrat de location"
+            parent="parc_auto_param"
+            action="action_parc_automobile_contrat_location"
+            sequence="3"
+        />
+        <menuitem
+            id="parc_auto_employe"
+            name="Employé"
+            parent="parc_auto_param"
+            action="action_parc_automobile_employe"
+            sequence="4"
+        />
+        <menuitem
+            id="parc_auto_entretien"
+            name="Entretien Auto"
+            parent="parc_auto_param"
+            action="action_parc_automobile_entretien"
+            sequence="5"
+        />
+
+        <!-- Gestion -->
+        <menuitem
+            id="parc_auto_gestion"
+            name="Gestion"
+            parent="parc_auto"
+            sequence="3"
+        />
+        <menuitem
+            id="parc_auto_affectation"
+            name="Affectations"
+            parent="parc_auto_gestion"
+            action="action_parc_automobile_affectation"
+            sequence="1"
+        />
+        <menuitem
+            id="parc_auto_carburant"
+            name="Suivi Carburant"
+            parent="parc_auto_gestion"
+            action="action_parc_automobile_carburant"
+            sequence="2"
+        />
+        <menuitem
+            id="parc_auto_document"
+            name="Documents"
+            parent="parc_auto_gestion"
+            action="action_parc_automobile_document"
+            sequence="3"
+        />
+        <menuitem
+            id="parc_auto_notification"
+            name="Notifications"
+            parent="parc_auto_gestion"
+            action="action_parc_automobile_notification"
+            sequence="4"
+        />
+    </data>
+</odoo>

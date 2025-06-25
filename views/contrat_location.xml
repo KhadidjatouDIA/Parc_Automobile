@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="parc_automobile_contrat_location_view_list" model="ir.ui.view">
+            <field name="name">parc.automobile.contrat.location.view.list</field>
+            <field name="model">parc.automobile.contrat.location</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="client_id" />
+                    <field name="date_debut" />
+                    <field name="date_fin" />
+                    <field name="montant_total" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="parc_automobile_contrat_location_view_form" model="ir.ui.view">
+            <field name="name">parc.automobile.contrat.location.view.form</field>
+            <field name="model">parc.automobile.contrat.location</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="montant_total" />
+                            </group>
+                            <group>
+                                <field name="client_id" />
+                                <field name="date_debut" />
+                                <field name="date_fin" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="voiture_list" string="Voiture louée">
+                                <field name="voiture_ids" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_parc_automobile_contrat_location">
+            <field name="name">Contrat de location</field>
+            <field name="res_model">parc.automobile.contrat.location</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="parc_automobile_contrat_location_view_list"/>
+        </record>
+    </data>
+</odoo>

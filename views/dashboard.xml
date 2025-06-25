@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="parc_automobile_dashboard_view" model="ir.ui.view">
+            <field name="name">parc.automobile.dashboard</field>
+            <field name="model">parc.automobile.voiture</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_dashboard">
+                    <field name="name"/>
+                    <field name="etat"/>
+                    <field name="consommation_moyenne"/>
+                    <field name="cout_entretien_annuel"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title">
+                                        <div class="o_primary"><strong><field name="name"/></strong></div>
+                                        <div class="o_secondary"><field name="etat"/></div>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_card_content">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button class="btn btn-primary" type="object" name="action_view_entretiens">
+                                                <field name="nb_entretiens"/> Entretiens
+                                            </button>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="badge badge-pill badge-info">
+                                                <field name="consommation_moyenne"/> L/100km
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_parc_automobile_dashboard">
+            <field name="name">Tableau de Bord</field>
+            <field name="res_model">parc.automobile.voiture</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="parc_automobile_dashboard_view"/>
+        </record>
+    </data>
+</odoo>

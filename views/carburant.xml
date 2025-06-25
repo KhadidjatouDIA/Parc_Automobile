@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="parc_automobile_carburant_view_list" model="ir.ui.view">
+            <field name="name">parc.automobile.carburant.view.list</field>
+            <field name="model">parc.automobile.carburant</field>
+            <field name="arch" type="xml">
+                <tree string="Suivi Carburant" decoration-danger="est_anomalie == True">
+                    <field name="vehicule_id" />
+                    <field name="date_plein" />
+                    <field name="type_carburant" />
+                    <field name="quantite" />
+                    <field name="montant_total" />
+                    <field name="kilometrage_actuel" />
+                    <field name="consommation" />
+                    <field name="est_anomalie" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="parc_automobile_carburant_view_form" model="ir.ui.view">
+            <field name="name">parc.automobile.carburant.view.form</field>
+            <field name="model">parc.automobile.carburant</field>
+            <field name="arch" type="xml">
+                <form string="Suivi Carburant">
+                    <header>
+                        <field name="est_anomalie" invisible="1"/>
+                        <div class="alert alert-warning" role="alert" invisible="not est_anomalie">
+                            <strong>⚠️ Anomalie détectée !</strong> La consommation semble anormale par rapport à la moyenne.
+                        </div>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="vehicule_id" />
+                                <field name="date_plein" />
+                                <field name="type_carburant" />
+                                <field name="quantite" />
+                                <field name="prix_unitaire" />
+                                <field name="montant_total" readonly="1" />
+                            </group>
+                            <group>
+                                <field name="kilometrage_actuel" />
+                                <field name="kilometrage_precedent" readonly="1" />
+                                <field name="distance_parcourue" readonly="1" />
+                                <field name="consommation" readonly="1" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_parc_automobile_carburant">
+            <field name="name">Suivi Carburant</field>
+            <field name="res_model">parc.automobile.carburant</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="parc_automobile_carburant_view_list"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Données de base : Marques automobiles -->
+        <record id="marque_peugeot" model="parc.automobile.marque">
+            <field name="name">Peugeot</field>
+            <field name="pays_id" ref="base.fr"/>
+            <field name="date_creation">1889-01-01</field>
+        </record>
+
+        <record id="marque_renault" model="parc.automobile.marque">
+            <field name="name">Renault</field>
+            <field name="pays_id" ref="base.fr"/>
+            <field name="date_creation">1898-01-01</field>
+        </record>
+
+        <record id="marque_toyota" model="parc.automobile.marque">
+            <field name="name">Toyota</field>
+            <field name="pays_id" ref="base.jp"/>
+            <field name="date_creation">1937-01-01</field>
+        </record>
+
+        <record id="marque_volkswagen" model="parc.automobile.marque">
+            <field name="name">Volkswagen</field>
+            <field name="pays_id" ref="base.de"/>
+            <field name="date_creation">1937-01-01</field>
+        </record>
+
+        <record id="marque_ford" model="parc.automobile.marque">
+            <field name="name">Ford</field>
+            <field name="pays_id" ref="base.us"/>
+            <field name="date_creation">1903-01-01</field>
+        </record>
+
+        <!-- Modèles de base -->
+        <record id="modele_peugeot_308" model="parc.automobile.modele">
+            <field name="name">308</field>
+            <field name="marque_id" ref="marque_peugeot"/>
+            <field name="type_carrosserie">berline</field>
+            <field name="consomation">6.5</field>
+            <field name="puissance">130</field>
+        </record>
+
+        <record id="modele_peugeot_508" model="parc.automobile.modele">
+            <field name="name">508</field>
+            <field name="marque_id" ref="marque_peugeot"/>
+            <field name="type_carrosserie">berline</field>
+            <field name="consomation">7.2</field>
+            <field name="puissance">165</field>
+        </record>
+
+        <record id="modele_renault_clio" model="parc.automobile.modele">
+            <field name="name">Clio</field>
+            <field name="marque_id" ref="marque_renault"/>
+            <field name="type_carrosserie">citadine</field>
+            <field name="consomation">5.8</field>
+            <field name="puissance">90</field>
+        </record>
+
+        <record id="modele_renault_megane" model="parc.automobile.modele">
+            <field name="name">Megane</field>
+            <field name="marque_id" ref="marque_renault"/>
+            <field name="type_carrosserie">berline</field>
+            <field name="consomation">6.2</field>
+            <field name="puissance">115</field>
+        </record>
+
+        <record id="modele_toyota_corolla" model="parc.automobile.modele">
+            <field name="name">Corolla</field>
+            <field name="marque_id" ref="marque_toyota"/>
+            <field name="type_carrosserie">berline</field>
+            <field name="consomation">5.5</field>
+            <field name="puissance">122</field>
+        </record>
+
+        <record id="modele_toyota_rav4" model="parc.automobile.modele">
+            <field name="name">RAV4</field>
+            <field name="marque_id" ref="marque_toyota"/>
+            <field name="type_carrosserie">suv</field>
+            <field name="consomation">7.8</field>
+            <field name="puissance">197</field>
+        </record>
+
+        <record id="modele_volkswagen_golf" model="parc.automobile.modele">
+            <field name="name">Golf</field>
+            <field name="marque_id" ref="marque_volkswagen"/>
+            <field name="type_carrosserie">berline</field>
+            <field name="consomation">6.0</field>
+            <field name="puissance">110</field>
+        </record>
+
+        <record id="modele_ford_focus" model="parc.automobile.modele">
+            <field name="name">Focus</field>
+            <field name="marque_id" ref="marque_ford"/>
+            <field name="type_carrosserie">berline</field>
+            <field name="consomation">6.3</field>
+            <field name="puissance">125</field>
+        </record>
+
+        <!-- Compagnies d'assurance de base -->
+        <record id="assurance_axa" model="parc.automobile.assurance">
+            <field name="name">AXA Assurance Auto</field>
+            <field name="type_assurance">tous_risques</field>
+            <field name="date_debut">2024-01-01</field>
+            <field name="date_fin">2024-12-31</field>
+            <field name="montant_annuel">1200.00</field>
+        </record>
+
+        <record id="assurance_maaf" model="parc.automobile.assurance">
+            <field name="name">MAAF Assurance</field>
+            <field name="type_assurance">tiers_plus</field>
+            <field name="date_debut">2024-01-01</field>
+            <field name="date_fin">2024-12-31</field>
+            <field name="montant_annuel">800.00</field>
+        </record>
+
+        <record id="assurance_macif" model="parc.automobile.assurance">
+            <field name="name">MACIF Auto</field>
+            <field name="type_assurance">tiers</field>
+            <field name="date_debut">2024-01-01</field>
+            <field name="date_fin">2024-12-31</field>
+            <field name="montant_annuel">600.00</field>
+        </record>
+
+        <!-- Clients de base -->
+        <record id="client_dupont" model="parc.automobile.client">
+            <field name="name">DUPONT Jean</field>
+            <field name="adresse">123 Rue de la Paix, 75001 Paris</field>
+            <field name="telephone">0123456789</field>
+            <field name="email">jean.dupont@email.com</field>
+        </record>
+
+        <record id="client_martin" model="parc.automobile.client">
+            <field name="name">MARTIN Marie</field>
+            <field name="adresse">456 Avenue des Champs, 69000 Lyon</field>
+            <field name="telephone">0987654321</field>
+            <field name="email">marie.martin@email.com</field>
+        </record>
+
+        <!-- Employés de base -->
+        <record id="employe_bernard" model="parc.automobile.employe">
+            <field name="name">BERNARD Pierre</field>
+            <field name="prenom">Pierre</field>
+            <field name="nom">BERNARD</field>
+            <field name="adresse">789 Boulevard Saint-Germain, 75007 Paris</field>
+            <field name="telephone">0156789012</field>
+            <field name="email">pierre.bernard@entreprise.com</field>
+            <field name="poste">Directeur Commercial</field>
+            <field name="departement">Commercial</field>
+            <field name="date_embauche">2020-03-15</field>
+        </record>
+
+        <record id="employe_leroy" model="parc.automobile.employe">
+            <field name="name">LEROY Sophie</field>
+            <field name="prenom">Sophie</field>
+            <field name="nom">LEROY</field>
+            <field name="adresse">321 Rue de Rivoli, 75001 Paris</field>
+            <field name="telephone">0145678901</field>
+            <field name="email">sophie.leroy@entreprise.com</field>
+            <field name="poste">Responsable RH</field>
+            <field name="departement">Ressources Humaines</field>
+            <field name="date_embauche">2019-09-01</field>
+        </record>
+
+    </data>
+</odoo>

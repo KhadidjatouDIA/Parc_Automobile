@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="parc_automobile_affectation_view_list" model="ir.ui.view">
+            <field name="name">parc.automobile.affectation.view.list</field>
+            <field name="model">parc.automobile.affectation</field>
+            <field name="arch" type="xml">
+                <tree string="Affectations" decoration-success="statut == 'active'" decoration-muted="statut == 'terminee'">
+                    <field name="vehicule_id" />
+                    <field name="employe_id" />
+                    <field name="type_affectation" />
+                    <field name="date_debut" />
+                    <field name="date_fin" />
+                    <field name="statut" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="parc_automobile_affectation_view_form" model="ir.ui.view">
+            <field name="name">parc.automobile.affectation.view.form</field>
+            <field name="model">parc.automobile.affectation</field>
+            <field name="arch" type="xml">
+                <form string="Affectation de véhicule">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="vehicule_id" />
+                                <field name="employe_id" />
+                                <field name="type_affectation" />
+                            </group>
+                            <group>
+                                <field name="date_debut" />
+                                <field name="date_fin" />
+                                <field name="statut" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Observations">
+                                <field name="observations" placeholder="Observations sur cette affectation..." />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_parc_automobile_affectation">
+            <field name="name">Affectations de véhicules</field>
+            <field name="res_model">parc.automobile.affectation</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="parc_automobile_affectation_view_list"/>
+        </record>
+    </data>
+</odoo>

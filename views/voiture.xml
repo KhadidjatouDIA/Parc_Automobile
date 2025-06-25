@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="parc_automobile_voiture_view_list" model="ir.ui.view">
+            <field name="name">parc.automobile.voiture.view.list</field>
+            <field name="model">parc.automobile.voiture</field>
+            <field name="arch" type="xml">
+                <tree string="Liste des Voitures" decoration-danger="etat == 'hors_service'">
+                    <field name="name" string="Nom" />
+                    <field name="immatriculation" />
+                    <field name="modele_id" />
+                    <field name="couleur" />
+                    <field name="date_service" />
+                    <field name="kilometrage" />
+                    <field name="montant_location" />
+                    <field name="etat" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="parc_automobile_voiture_view_form" model="ir.ui.view">
+            <field name="name">parc.automobile.voiture.view.form</field>
+            <field name="model">parc.automobile.voiture</field>
+            <field name="arch" type="xml">
+                <form string="Fiche Voiture">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box"/>
+                        <h1><field name="name"/></h1>
+                        <div class="oe_title">
+                            <field name="photo" widget="image" class="oe_avatar" options="{'size': [150, 150]}" />
+                        </div>
+                        <group>
+                            <group>
+                                <separator string="Informations Générales"/>
+                                <field name="immatriculation" />
+                                <field name="modele_id" />
+                                <field name="couleur" />
+                                <field name="date_service" />
+                                <field name="kilometrage" />
+                                <field name="montant_location" />
+                            </group>
+                            <group>
+                                <separator string="Suivi et État"/>
+                                <field name="etat" />
+                                <field name="date_dernier_entretien" />
+                                <field name="prochaine_visite_technique" />
+                                <field name="assurance_id" />
+                                <field name="carte_grise_id" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Documents Douaniers">
+                                <field name="documets_ids" widget="many2many_binary" />
+                            </page>
+                            <page string="Historique ou Autres Infos">
+                                <field name="description" placeholder="Ajouter des remarques ou détails supplémentaires..." />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_parc_automobile_voiture">
+            <field name="name">Liste des Voitures</field>
+            <field name="res_model">parc.automobile.voiture</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="parc_automobile_voiture_view_list"/>
+        </record>
+    </data>
+</odoo>

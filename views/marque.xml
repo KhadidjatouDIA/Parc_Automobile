@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="parc_automobile_marque_view_list" model="ir.ui.view">
+            <field name="name">parc.automobile.marque.view.list</field>
+            <field name="model">parc.automobile.marque</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="pays_id" />
+                    <field name="date_creation" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="parc_automobile_marque_view_form" model="ir.ui.view">
+            <field name="name">parc.automobile.marque.view.form</field>
+            <field name="model">parc.automobile.marque</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="pays_id" />
+                            <field name="date_creation" />
+                        </group>
+                        <notebook>
+                            <page name="modele" string="Les modèles de la Marque">
+                                <field name="modele_ids" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_parc_automobile_marque">
+            <field name="name">Liste des marques</field>
+            <field name="res_model">parc.automobile.marque</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="parc_automobile_marque_view_list"/>
+        </record>
+    </data>
+</odoo>

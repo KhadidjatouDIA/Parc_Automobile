@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="parc_automobile_document_view_list" model="ir.ui.view">
+            <field name="name">parc.automobile.document.view.list</field>
+            <field name="model">parc.automobile.document</field>
+            <field name="arch" type="xml">
+                <tree string="Documents Administratifs" decoration-danger="est_expire == True" decoration-warning="jours_avant_expiration &lt; 30 and jours_avant_expiration &gt; 0">
+                    <field name="name" />
+                    <field name="vehicule_id" />
+                    <field name="type_document" />
+                    <field name="date_delivrance" />
+                    <field name="date_expiration" />
+                    <field name="jours_avant_expiration" />
+                    <field name="est_expire" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="parc_automobile_document_view_form" model="ir.ui.view">
+            <field name="name">parc.automobile.document.view.form</field>
+            <field name="model">parc.automobile.document</field>
+            <field name="arch" type="xml">
+                <form string="Document Administratif">
+                    <header>
+                        <field name="est_expire" invisible="1"/>
+                        <div class="alert alert-danger" role="alert" invisible="not est_expire">
+                            <strong>⚠️ Document expiré !</strong> Ce document a expiré le <field name="date_expiration" readonly="1"/>.
+                        </div>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="vehicule_id" />
+                                <field name="type_document" />
+                                <field name="numero_document" />
+                                <field name="organisme_delivrant" />
+                            </group>
+                            <group>
+                                <field name="date_delivrance" />
+                                <field name="date_expiration" />
+                                <field name="jours_avant_expiration" readonly="1" />
+                                <field name="rappel_avant_expiration" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Fichier">
+                                <group>
+                                    <field name="fichier" />
+                                    <field name="nom_fichier" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_parc_automobile_document">
+            <field name="name">Documents Administratifs</field>
+            <field name="res_model">parc.automobile.document</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="parc_automobile_document_view_list"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        
+        <!-- Catégorie de sécurité pour le module Parc Automobile -->
+        <record model="ir.module.category" id="module_parc_automobile_category">
+            <field name="name">Parc Automobile</field>
+            <field name="description">Gestion des habilitations pour le module Parc Automobile</field>
+            <field name="sequence">50</field>
+        </record>
+        
+        <!-- Groupe Utilisateur Parc Automobile -->
+        <record id="group_parc_automobile_user" model="res.groups">
+            <field name="name">Utilisateur Parc Automobile</field>
+            <field name="category_id" ref="module_parc_automobile_category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">Accès en lecture et saisie limitée pour les utilisateurs du parc automobile</field>
+        </record>
+        
+        <!-- Groupe Gestionnaire Parc Automobile -->
+        <record id="group_parc_automobile_manager" model="res.groups">
+            <field name="name">Gestionnaire Parc Automobile</field>
+            <field name="category_id" ref="module_parc_automobile_category"/>
+            <field name="implied_ids" eval="[(4, ref('group_parc_automobile_user'))]"/>
+            <field name="comment">Gestion complète du parc automobile avec droits étendus</field>
+        </record>
+        
+        <!-- Groupe Administrateur Parc Automobile (optionnel mais recommandé) -->
+        <record id="group_parc_automobile_admin" model="res.groups">
+            <field name="name">Administrateur Parc Automobile</field>
+            <field name="category_id" ref="module_parc_automobile_category"/>
+            <field name="implied_ids" eval="[(4, ref('group_parc_automobile_manager'))]"/>
+            <field name="comment">Administration complète du module avec accès à la configuration</field>
+        </record>
+        
+    </data>
+</odoo>
